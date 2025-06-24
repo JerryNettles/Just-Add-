@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Modus Times</title>
+  </head>
+  <body>
+    <header>
+      <h1>Modus Times</h1>
+    </header>
+    <nav>
+      <a href="https://moduscreate.com/">Home</a> |
+      <a href="https://marketplace.atlassian.com/vendors/1212980/modus-create">Atlassian Apps</a> |
+      <a href="https://static6.depositphotos.com/1007959/655/i/950/depositphotos_6553207-stock-photo-really-green-road-sign.jpg">Politics</a> |
+      <a href="#">Technology</a>
+    </nav>
+    <section>
+      <article>
+        <img src="https://mms.businesswire.com/media/20220511005070/en/1450970/23/Modus-Logo-Primary-Black_%282%29.jpg" alt="Modus Logo" width="250">
+        <h2>Breaking News: Important Event</h2>
+        <p>Come say hi to our team at booth #22!</p>
+      </article>
+      <article>
+        <img src="https://mms.businesswire.com/media/20220511005070/en/1450970/23/Modus-Logo-Primary-Black_%282%29.jpg" alt="Modus Logo" width="250">
+        <h2>Exclusive Interview with Industry Leader</h2>
+        <p>Join us for a panel discussion featuring Wendy Z. of Zelis on impactful HR service management practices.</p>
+      </article>
+      <article>
+        <img src="https://mms.businesswire.com/media/20220511005070/en/1450970/23/Modus-Logo-Primary-Black_%282%29.jpg" alt="Modus Logo" width="250">
+        <h2>New Breakthrough in Technology</h2>
+        <p>See you at Team '24</p>
+      </article>
+    </section>
+    <footer>
+      <p>&copy; 2024 Modus Times. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
