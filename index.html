@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Modus Times</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
   <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -54,6 +55,10 @@
       font-size: 0.9em;
       color: #888;
     }
+    #swagger-ui {
+      max-width: 90%;
+      margin: 60px auto;
+    }
   </style>
 </head>
 <body>
@@ -84,9 +89,26 @@
     </article>
   </section>
 
+  <div id="swagger-ui"></div>
+
   <footer>
     &copy; 2024 Modus Times. All rights reserved.
   </footer>
+
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = () => {
+      SwaggerUIBundle({
+        url: "openapi.yaml",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout"
+      });
+    };
+  </script>
 </body>
 </html>
-
