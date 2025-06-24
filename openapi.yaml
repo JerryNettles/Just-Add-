@@ -1,20 +1,52 @@
 openapi: 3.0.0
 info:
-  title: Just Add+ Example API
-  description: A simple example API spec for embedding in Confluence
+  title: Modus Times API
+  description: API documentation for the Modus Times demo, showing a sample headless CMS.
   version: 1.0.0
+servers:
+  - url: https://modustimes.justadd.com/api
 paths:
-  /hello:
+  /articles:
     get:
-      summary: Returns a greeting
+      summary: Get all articles
+      description: Returns a list of all published articles in Modus Times
       responses:
         '200':
-          description: A successful response
+          description: A JSON array of articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    title:
+                      type: string
+                    summary:
+                      type: string
+  /articles/{id}:
+    get:
+      summary: Get article by ID
+      description: Returns the full content of an article by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single article
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message:
+                  id:
                     type: string
-                    example: Hello from Just Add+
+                  title:
+                    type: string
+                  body:
+                    type: string
