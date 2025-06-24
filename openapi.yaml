@@ -1,72 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modus Times API</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Roboto", sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(to right, #01665e, #0284c7);
-      padding: 2rem 1rem;
-      text-align: center;
-      color: white;
-    }
-    header img {
-      height: 40px;
-      vertical-align: middle;
-      margin-bottom: 0.5rem;
-    }
-    header h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0 0;
-    }
-    .graphic {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      max-width: 900px;
-      margin: 2rem auto;
-      text-align: center;
-    }
-    .graphic h2 {
-      color: #01665e;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .graphic img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    .swagger-ui {
-      max-width: 1000px;
-      margin: 2rem auto;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://moduscreate.com/wp-content/uploads/2021/06/modus-logo-white.svg" alt="Modus Create Logo" />
-    <h1>Modus Times API</h1>
-    <p>A demo API for embedded Swagger in Confluence</p>
-  </header>
+openapi: 3.0.0
+info:
+  title: Modus Times Public API
+  version: 1.0.0
+  description: >
+    This is a mock API for demo purposes inside Confluence using the Just Add+ Swagger macro.
+    It includes editorial-style content for testing layouts and presentation.
 
-  <section class="graphic">
-    <h2>What is Modus Times?</h2>
-    <p>A fictional publication from Modus Create's Product Studio — used to showcase real-world API examples.</p>
-    <img src="https://source.unsplash.com/featured/?newspaper,technology" alt="Demo Graphic" />
-  </section>
+servers:
+  - url: https://api.modustimes.com/v1
 
-  <section class="swagger-ui">
-    <!-- Swagger UI gets injected here when embedded in Confluence -->
-  </section>
-</body>
-</html>
+paths:
+  /articles:
+    get:
+      summary: Get list of articles
+      operationId: listArticles
+      responses:
+        '200':
+          description: A list of articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+
+  /articles/{id}:
+    get:
+      summary: Get article by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Full article
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+        '404':
+          description: Not found
+
+components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        author:
+          type: string
+        publishDate:
+          type: string
+          format: date
+        body:
+          type: string
